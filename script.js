@@ -1,82 +1,102 @@
 document.addEventListener('DOMContentLoaded', function() {
     const articles = [
-        { title: "Article 1", content: "This is the first article", url: "article1.html", tags: ['short', 'introductory'] },
-        { title: "Article 2", content: "This is the second article", url: "article2.html", tags: ['long', 'detailed'] },
-        // Add more articles with tags as needed...
+        {
+            title: "Understanding ADHD Causes",
+            summary: "Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder...",
+            tags: { length: 'short', concern: 'adhd', feeling: 'anxious', date: '2021-01-01', type: 'informative' }
+        },
+        {
+            title: "Depression in the Workplace",
+            summary: "Depression in the workplace is an often-overlooked issue that can significantly impact productivity...",
+            tags: { length: 'long', concern: 'depression', feeling: 'sad', date: '2021-02-15', type: 'selfhelp' }
+        },
+        {
+            title: "Coping with PTSD in Family Settings",
+            summary: "Managing PTSD within a family context presents unique challenges and dynamics...",
+            tags: { length: 'long', concern: 'ptsd', feeling: 'stressed', date: '2021-03-30', type: 'informative' }
+        },
+        // Add more article objects as needed
     ];
 
-    const recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+    const articlesContainer = document.getElementById('articles');
+    const searchInput = document.getElementById('searchInput');
+    const suggestionsPanel = document.getElementById('suggestions');
 
 
-    function displayArticles(filteredArticles) {
-        const container = document.getElementById('articlesContainer');
-        container.innerHTML = ''; // Clear current content
-        filteredArticles.forEach(article => {
-            const articleDiv = document.createElement('div');
-            articleDiv.className = 'article';
-            articleDiv.innerHTML = `
-                <div class="article-title">${article.title}</div>
-                <div class="article-content">${article.content}</div>
-                <div class="article-tags">Tags: ${article.tags.join(', ')}</div>
-                <a href="${article.url}">Read more</a>
-            `;
-            container.appendChild(articleDiv);
+    function renderArticles(articlesToRender) {
+        articlesContainer.innerHTML = articlesToRender.map(article => `
+            <div class="article-card">
+                <h3>${article.title}</h3>
+                <p>${article.summary}</p>
+                <div class="tags">
+                    <span class="tag">${article.tags.length}</span>
+                    <span class="tag">${article.tags.concern}</span>
+                    <span class="tag">${article.tags.feeling}</span>
+                    <span class="tag">${article.tags.date}</span>
+                    <span class="tag">${article.tags.type}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function filterArticles(searchTerm) {
+        return articles.filter(article => {
+            const tagsString = Object.values(article.tags).join(' ').toLowerCase();
+            return article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                   article.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                   tagsString.includes(searchTerm.toLowerCase());
         });
     }
 
-    function searchArticles(query) {
-        return articles.filter(article => 
-            article.title.toLowerCase().includes(query.toLowerCase()) || 
-            article.content.toLowerCase().includes(query.toLowerCase()) ||
-            article.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-        );
-    }
 
-    function updateRecentSearches(query) {
-        if (query && !recentSearches.includes(query)) {
-            recentSearches.unshift(query); // Add to the beginning of the array
-            if (recentSearches.length > 5) { // Limit to 5 recent searches
-                recentSearches.pop();
-            }
-            localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-        }
-    }
 
-    function displaySearchSuggestions(inputValue) {
-        const suggestionsContainer = document.getElementById('searchSuggestions');
-        suggestionsContainer.innerHTML = ''; // Clear existing suggestions
 
-        if (inputValue) {
-            const suggestions = recentSearches.filter(search => 
-                search.toLowerCase().includes(inputValue.toLowerCase())
-            );
-
-            suggestions.forEach(suggestion => {
-                const suggestionDiv = document.createElement('div');
-                suggestionDiv.textContent = suggestion;
-                suggestionDiv.addEventListener('click', () => {
-                    document.getElementById('searchInput').value = suggestion;
-                    const results = searchArticles(suggestion);
-                    displayArticles(results);
-                    suggestionsContainer.innerHTML = ''; // Clear suggestions after selection
-                });
-                suggestionsContainer.appendChild(suggestionDiv);
+    // Function to collect all unique tags from the articles
+    function getAllTags(articles) {
+        const allTags = new Set();
+        articles.forEach(article => {
+            Object.values(article.tags).forEach(tag => {
+                allTags.add(tag);
             });
-        }
+        });
+        return Array.from(allTags);
     }
 
-    const searchInput = document.getElementById('searchInput');
+    function showSuggestions(value) {
+        const suggestions = getAllTags(articles).filter(tag => 
+            tag.toLowerCase().includes(value.toLowerCase())
+        );
+        suggestionsPanel.innerHTML = '';
+        suggestions.forEach(suggestion => {
+            const div = document.createElement('div');
+            div.innerHTML = suggestion;
+            div.onclick = function() {
+                searchInput.value = suggestion;
+                const filteredArticles = filterArticles(suggestion);
+                renderArticles(filteredArticles);
+                suggestionsPanel.innerHTML = '';
+            };
+            suggestionsPanel.appendChild(div);
+        });
+    }
 
-    searchInput.addEventListener('input', (e) => {
-        const results = searchArticles(e.target.value);
-        displayArticles(results);
-        displaySearchSuggestions(e.target.value);
+    searchInput.addEventListener('input', function(e) {
+        const filteredArticles = filterArticles(e.target.value);
+        renderArticles(filteredArticles);
+        if (e.target.value.length > 0) {
+            showSuggestions(e.target.value);
+        } else {
+            suggestionsPanel.innerHTML = '';
+        }
     });
 
-    searchInput.addEventListener('change', (e) => {
-        updateRecentSearches(e.target.value.trim());
+    // Hide suggestions panel when clicking outside
+    document.addEventListener('click', function(e) {
+        if (e.target.id !== 'searchInput') {
+            suggestionsPanel.innerHTML = '';
+        }
     });
 
     // Initially display all articles
-    displayArticles(articles);
+    renderArticles(articles);
 });
