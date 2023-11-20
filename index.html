@@ -3,37 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article Page</title>
-    <style>
-        .article { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
-        .article-title { font-size: 20px; font-weight: bold; }
-        .article-content { font-size: 16px; }
-
-        .article { margin-bottom: 20px; }
-        #searchSuggestions {
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        #searchSuggestions div {
-            padding: 12px 16px;
-            cursor: pointer;
-        }
-        #searchSuggestions div:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
+    <title>Student Serenity - Articles</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <input type="text" id="searchInput" placeholder="Search articles...">
-    <div id="searchSuggestions"></div>
-    <div id="articlesContainer">
-        <!-- Articles will be displayed here -->
-    </div>
-
+    <header>
+        <div id="brand">Student Serenity</div>
+        <nav>
+            <a href="#" class="active">Articles</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Sign In/Sign up</a>
+        </nav>
+        <div id="search-bar">
+            <input type="text" id="searchInput" placeholder="Title / Feeling / Concern / Author" />
+            <div id="suggestions"></div>
+        </div>
+    </header>
+    <main>
+        <section id="filter-section">
+            <button class="filter-button">Quick Searches:</button>
+            <button class="filter-button">Lonely</button>
+            <button class="filter-button">Angry</button>
+            <button class="filter-button">Depression</button>
+            <button class="filter-button">ADHD</button>
+            <button class="filter-button">Anxiety</button>
+            <!-- Add more buttons as needed -->
+        </section>
+        <section id="articles">
+            <!-- Articles will be dynamically inserted here -->
+        </section>
+        <div id="pagination">
+            <a href="#">&laquo; Previous</a>
+            <!-- Dynamically add page numbers here -->
+            <a href="#">Next &raquo;</a>
+        </div>
+    </main>
+    <footer>
+        <!-- Footer content -->
+    </footer>
     <script src="script.js"></script>
-
 </body>
 </html>
