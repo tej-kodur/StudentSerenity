@@ -57,28 +57,35 @@ document.addEventListener('DOMContentLoaded', function() {
         updatePagination();
     }
 
+
+
     function renderArticles(articlesToRender) {
-        articlesContainer.innerHTML = articlesToRender.map(article => `
+        articlesContainer.innerHTML = articlesToRender.map((article, index) => `
             <div class="article-card">
                 <h3>${article.title}</h3>
                 <p>${article.summary}</p>
-                <div class="tags">
-                    <span class="tag">${article.tags.length}</span>
-                    <span class="tag">${article.tags.concern}</span>
-                    <span class="tag">${article.tags.feeling}</span>
-                    <span class="tag">${article.tags.date}</span>
-                    <span class="tag">${article.tags.type}</span>
-                    <span class="tag">${article.tags.author}</span>
-                </div>
+                <button class="read-more-btn" data-index="${index}">Read More</button>
             </div>
         `).join('');
+    
+        // Add click event listeners to each "Read More" button
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const articleIndex = this.getAttribute('data-index');
+                // Redirect to the article content page with the index as a query parameter
+                window.location.href = `article.html?index=${articleIndex}`;
+            });
+        });
     }
+    
+
+    
     function updatePagination() {
         paginationContainer.innerHTML = '';
 
         // Add previous button
         if (currentPage > 1) {
-            const prevButton = createPaginationButton(currentPage - 1, '&laquo; Previous');
+            const prevButton = createPaginationButton(currentPage - 1, 'Previous');
             paginationContainer.appendChild(prevButton);
         }
 
@@ -93,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Add next button
         if (currentPage < totalPages) {
-            const nextButton = createPaginationButton(currentPage + 1, 'Next &raquo;');
+            const nextButton = createPaginationButton(currentPage + 1, 'Next');
             paginationContainer.appendChild(nextButton);
         }
     }
@@ -146,27 +153,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    function renderArticles(articlesToRender) {
-        articlesContainer.innerHTML = articlesToRender.map(article => `
-            <div class="article-card">
-                <h3>${article.title}</h3>
-                <p>${article.summary}</p>
-                <div class="tags">
-                    <span class="tag">${article.tags.length}</span>
-                    <span class="tag">${article.tags.concern}</span>
-                    <span class="tag">${article.tags.feeling}</span>
-                    <span class="tag">${article.tags.date}</span>
-                    <span class="tag">${article.tags.type}</span>
-                </div>
-            </div>
-        `).join('');
-        // Display a message if no articles match the filter
-        if (articlesToRender.length === 0) {
-            articlesContainer.innerHTML = '<p class="no-articles">No articles found.</p>';
-        }
-    }
+    
 
-  
+        // On your main page with the articles list
+    document.querySelectorAll('.article-card').forEach(card => {
+        card.addEventListener('click', function() {
+            // Assuming each card has a data attribute with the article ID
+            const articleId = this.dataset.articleId;
+            // Store the article ID in local storage or pass it in the URL
+            localStorage.setItem('currentArticleId', articleId);
+            // Redirect to the article content page
+            window.location.href = 'article.html';
+        });
+    });
+
 
     function getCheckedBoxesValues(name) {
         return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
