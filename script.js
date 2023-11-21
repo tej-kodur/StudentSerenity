@@ -3,39 +3,20 @@ let currentPage = 1;
 document.addEventListener('DOMContentLoaded', function() {
     const articlesPerPage = 20;
 
+    function loadArticles() {
+        fetch('articles.json')
+          .then(response => response.json())
+          .then(data => {
+            articles = data.articles; // Assuming your JSON structure matches the one given above
+            totalPages = Math.ceil(articles.length / articlesPerPage);
+            renderPage();
+          });
+      }
+    
+      // Call the loadArticles function to load your articles from the JSON file
+    loadArticles();
 
-    const articles = [
-        // Adding 30 articles with different tags and an author tag
-        {
-            title: "Understanding ADHD Causes: Unraveling the Complex Web",
-            summary: "Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder. It is one of the most common disorders of this kind diagnosed in children. ADHD often carries over into adulthood...",
-            tags: { length: 'short', concern: 'adhd', feeling: 'anxious', date: '2021-01-01', type: 'informative', author: 'Dr. A. Smith' }
-        },
-        {
-            title: "Depression in the Workplace: Recognizing and Responding",
-            summary: "Depression in the workplace is an often-overlooked issue that can significantly impact productivity and employee well-being. Understanding how to recognize the signs of depression among colleagues and the best ways to offer support are crucial steps in creating a supportive work environment...",
-            tags: { length: 'long', concern: 'depression', feeling: 'sad', date: '2021-02-15', type: 'selfhelp', author: 'J. Doe' }
-        },
-        // ... 28 more articles ...
-        {
-            title: "Navigating Social Anxiety in College Settings",
-            summary: "Social anxiety can deeply affect one's ability to engage in university life. This article explores strategies to manage social anxiety, create meaningful relationships, and enhance academic performance...",
-            tags: { length: 'medium', concern: 'anxiety', feeling: 'stressed', date: '2021-03-30', type: 'selfhelp', author: 'C. Brown' }
-        },
-        // Repeated articles with variations for the example
-        ...Array.from({ length: 27 }, (_, i) => ({
-            title: `Article Title ${i + 4}`,
-            summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-            tags: { 
-                length: ['short', 'medium', 'long'][i % 3],
-                concern: ['adhd', 'depression', 'ptsd', 'anxiety', 'insomnia'][i % 5],
-                feeling: ['anxious', 'sad', 'stressed', 'lonely'][i % 4],
-                date: ['2021', '2020', '2019', '2018', 'before 2018'][i % 5],
-                type: ['informative', 'selfhelp'][i % 2],
-                author: `Author ${i % 10}`
-            }
-        }))
-    ];
+
 
     const totalPages = Math.ceil(articles.length / articlesPerPage);
     const paginationContainer = document.getElementById('pagination'); // Ensure this element exists in your HTML
@@ -125,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function filterArticles() {
         const searchTerm = searchInput.value.toLowerCase();
         let filteredArticles = articles;
-
+    
         // Filter by search term
         if (searchTerm) {
             filteredArticles = filteredArticles.filter(article => {
@@ -135,12 +116,26 @@ document.addEventListener('DOMContentLoaded', function() {
                        tagsString.includes(searchTerm);
             });
         }
-
+    
+        // Get selected years from the checkboxes
+        const selectedYears = Array.from(document.querySelectorAll('input[name="date"]:checked'))
+                                   .map(checkbox => checkbox.value);
+    
         // Filter by checkboxes for each category
         filteredArticles = filteredArticles.filter(article => {
+            // Filter by selected years, including the special case for "Before 2018"
+            const articleYear = article.tags.date.split('-')[0];
+            if (selectedYears.includes('before2018') && parseInt(articleYear, 10) < 2018) {
+                return true;
+            }
+            if (selectedYears.length > 0 && !selectedYears.includes(articleYear)) {
+                return false;
+            }
+    
+            // Filter by other categories (concern, length, etc.)
             return Array.from(filterCheckboxes).every(checkbox => {
-                if (!checkbox.checked) {
-                    return true; // If the checkbox is not checked, don't filter by it
+                if (!checkbox.checked || checkbox.name === 'date') {
+                    return true; // Skip unchecked checkboxes and date checkboxes since it's already handled
                 }
                 // Check if the article's tags match the checkbox value
                 const category = checkbox.name;
@@ -148,9 +143,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return article.tags[category].toLowerCase() === value;
             });
         });
-
+    
         renderArticles(filteredArticles);
     }
+    
 
 
     
