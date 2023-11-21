@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function filterArticles() {
         const searchTerm = searchInput.value.toLowerCase();
         let filteredArticles = articles;
-
+    
         // Filter by search term
         if (searchTerm) {
             filteredArticles = filteredArticles.filter(article => {
@@ -135,12 +135,26 @@ document.addEventListener('DOMContentLoaded', function() {
                        tagsString.includes(searchTerm);
             });
         }
-
+    
+        // Get selected years from the checkboxes
+        const selectedYears = Array.from(document.querySelectorAll('input[name="date"]:checked'))
+                                   .map(checkbox => checkbox.value);
+    
         // Filter by checkboxes for each category
         filteredArticles = filteredArticles.filter(article => {
+            // Filter by selected years, including the special case for "Before 2018"
+            const articleYear = article.tags.date.split('-')[0];
+            if (selectedYears.includes('before2018') && parseInt(articleYear, 10) < 2018) {
+                return true;
+            }
+            if (selectedYears.length > 0 && !selectedYears.includes(articleYear)) {
+                return false;
+            }
+    
+            // Filter by other categories (concern, length, etc.)
             return Array.from(filterCheckboxes).every(checkbox => {
-                if (!checkbox.checked) {
-                    return true; // If the checkbox is not checked, don't filter by it
+                if (!checkbox.checked || checkbox.name === 'date') {
+                    return true; // Skip unchecked checkboxes and date checkboxes since it's already handled
                 }
                 // Check if the article's tags match the checkbox value
                 const category = checkbox.name;
@@ -148,9 +162,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return article.tags[category].toLowerCase() === value;
             });
         });
-
+    
         renderArticles(filteredArticles);
     }
+    
 
 
     

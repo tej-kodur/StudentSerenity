@@ -1,0 +1,42 @@
+{
+    "articles": [
+      {
+        "title": "Understanding ADHD Causes: Unraveling the Complex Web",
+        "summary": "Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder. It is one of the most common disorders of this kind diagnosed in children. ADHD often carries over into adulthood...",
+        "tags": {
+          "length": "short",
+          "concern": "adhd",
+          "feeling": "anxious",
+          "date": "2021-01-01",
+          "type": "informative",
+          "author": "Dr. A. Smith"
+        }
+      },
+      {
+        "title": "Depression in the Workplace: Recognizing and Responding",
+        "summary": "Depression in the workplace is an often-overlooked issue that can significantly impact productivity and employee well-being. Understanding how to recognize the signs of depression among colleagues and the best ways to offer support are crucial steps in creating a supportive work environment...",
+        "tags": {
+          "length": "long",
+          "concern": "depression",
+          "feeling": "sad",
+          "date": "2021-02-15",
+          "type": "selfhelp",
+          "author": "J. Doe"
+        }
+      },
+      {
+        "title": "Navigating Social Anxiety in College Settings",
+        "summary": "Social anxiety can deeply affect one's ability to engage in university life. This article explores strategies to manage social anxiety, create meaningful relationships, and enhance academic performance...",
+        "tags": {
+          "length": "medium",
+          "concern": "anxiety",
+          "feeling": "stressed",
+          "date": "2021-03-30",
+          "type": "selfhelp",
+          "author": "C. Brown"
+        }
+      }
+ 
+    ]
+  }
+  

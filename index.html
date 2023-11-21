@@ -8,40 +8,118 @@
 </head>
 <body>
     <header>
-        <div id="brand">Student Serenity</div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Student Serenity" class="logo"> <!-- Replace with your logo path -->
+            <figcaption>Student Serenity</figcaption>
+        </div>
         <nav>
             <a href="#" class="active">Articles</a>
             <a href="#">About Us</a>
             <a href="#">Contact</a>
             <a href="#">Sign In/Up</a>
         </nav>
+        
+    </header>
+    <main>
         <div id="search-bar">
             <input type="text" id="searchInput" placeholder="Title / Feeling / Concern / Author" />
             <div id="suggestions"></div>
         </div>
-    </header>
-    <main>
-        <div id="pagination"></div>
+        <div id="pagination">
+            <a href="#" class="pagination-previous">Previous</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <!-- ... other page numbers ... -->
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#" class="pagination-next">Next</a>
+        </div>
+        
+       
         <aside id="filters">
             <button id="filterButton">Filters</button>
             <div id="filterDropdown" class="filter-dropdown">
+
+                <div class="filter-column">
                 <!-- Filter by Concern -->
                 <div class="filter-category">
+                    
                     <h3>Filter by Concern</h3>
-                    <label><input type="checkbox" class="filter" name="concern" value="ADHD"> ADHD (50)</label>
-                    <!-- Add other concern filters -->
+                    <label><input type="checkbox" name="concern" value="ADHD"> ADHD</label>
+                    <label><input type="checkbox" name="concern" value="Anxiety"> Anxiety</label>
+                    <label><input type="checkbox" name="concern" value="Depression"> Depression</label>
+                    <label><input type="checkbox" name="concern" value="Distress"> Distress</label>
+                    <label><input type="checkbox" name="concern" value="Insomnia"> Insomnia</label>
+                    <label><input type="checkbox" name="concern" value="Addictive Behavior"> Addictive Behavior</label>
+                    <label><input type="checkbox" name="concern" value="PTSD"> PTSD</label>
+                    <!-- Add other concern filters as needed -->
                 </div>
-                <!-- Add other filter categories similarly -->
+                
+                <!-- Filter by Length -->
+                <div class="filter-category">
+                    <h3>Filter by Length</h3>
+                    <label><input type="checkbox" name="length" value="Short"> Short</label>
+                    <label><input type="checkbox" name="length" value="Medium"> Medium</label>
+                    <label><input type="checkbox" name="length" value="Long"> Long</label>
+                </div>
+                </div>
+                <div class="filter-column">
+                <!-- Filter by Type -->
+                <div class="filter-category">
+                    <h3>Filter by Type</h3>
+                    <label><input type="checkbox" name="type" value="Informative"> Informative</label>
+                    <label><input type="checkbox" name="type" value="Self-Help"> Self-Help</label>
+                    <label><input type="checkbox" name="type" value="Research"> Research</label>
+                </div>
+            
+                <!-- Filter by Date -->
+                <div class="filter-category">
+                    <h3>Filter by Date</h3>
+                    <label><input type="checkbox" name="date" value="2023"> 2023</label>
+                    <label><input type="checkbox" name="date" value="2022"> 2022</label>
+                    <label><input type="checkbox" name="date" value="2021"> 2021</label>
+                    <label><input type="checkbox" name="date" value="2020"> 2020</label>
+                    <label><input type="checkbox" name="date" value="2019"> 2019</label>
+                    <label><input type="checkbox" name="date" value="Before 2018"> Before 2018</label>
+                    <!-- Add other years or ranges as needed -->
+                </div>
+                </div>
             </div>
         </aside>
         
         <section id="articles">
             <!-- Articles will be dynamically inserted here -->
         </section>
+
+        
     </main>
-    <footer>
-        <!-- Footer content -->
+    <footer class="footer">
+        <div class="footer-column">
+            <img src="logo.png" alt="Student Serenity" style="max-width: 100px;">
+            <p>Student Serenity</p>
+        </div>
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <p>Contact</p>
+            <p>Have a question?</p>
+            <p>Email us anytime</p>
+            <a href="mailto:studentserenity@gmail.com">studentserenity@gmail.com</a>
+        </div>
+        <div class="footer-column">
+            <h3>Social Networks</h3>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Linkedin</a>
+        </div>
+        <div class="footer-column">
+            <h3>Address</h3>
+            <p>1200 W Harrison St</p>
+            <p>Chicago IL 6067</p>
+            <a href="#">Get Directions</a>
+        </div>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
