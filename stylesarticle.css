@@ -1,0 +1,97 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the font and background for the entire page */
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /* Adjust the background color to match your design */
+}
+
+/* Header styles */
+header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#brand {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Navigation styles */
+nav a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+nav a.active, nav a:hover {
+    color: #0056b3;
+}
+
+/* Search bar styles */
+#search-bar input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+
+/* Main content styles */
+main {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    padding: 1rem;
+}
+
+/* Article card styles */
+.article-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px; /* Space between articles */
+}
+
+/* Article title styles */
+.article-card h3 {
+    font-size: 1.5em; /* Larger font size for titles */
+    margin-bottom: 0.5em; /* Space below the title */
+}
+
+/* Article summary styles */
+.article-card p {
+    color: #333; /* Dark text for readability */
+    margin-bottom: 1em; /* Space below the summary */
+}
+
+/* 'Read More' button styles */
+.read-more-btn {
+    padding: 10px 15px;
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3; /* Button color on hover */
+}
+
+/* Footer styles */
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Push footer to the bottom */
+}
