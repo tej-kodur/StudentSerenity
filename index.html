@@ -13,7 +13,7 @@
             <a href="#" class="active">Articles</a>
             <a href="#">About Us</a>
             <a href="#">Contact</a>
-            <a href="#">Sign In/Sign up</a>
+            <a href="#">Sign In/Up</a>
         </nav>
         <div id="search-bar">
             <input type="text" id="searchInput" placeholder="Title / Feeling / Concern / Author" />
@@ -21,23 +21,23 @@
         </div>
     </header>
     <main>
-        <section id="filter-section">
-            <button class="filter-button">Quick Searches:</button>
-            <button class="filter-button">Lonely</button>
-            <button class="filter-button">Angry</button>
-            <button class="filter-button">Depression</button>
-            <button class="filter-button">ADHD</button>
-            <button class="filter-button">Anxiety</button>
-            <!-- Add more buttons as needed -->
-        </section>
+        <div id="pagination"></div>
+        <aside id="filters">
+            <button id="filterButton">Filters</button>
+            <div id="filterDropdown" class="filter-dropdown">
+                <!-- Filter by Concern -->
+                <div class="filter-category">
+                    <h3>Filter by Concern</h3>
+                    <label><input type="checkbox" class="filter" name="concern" value="ADHD"> ADHD (50)</label>
+                    <!-- Add other concern filters -->
+                </div>
+                <!-- Add other filter categories similarly -->
+            </div>
+        </aside>
+        
         <section id="articles">
             <!-- Articles will be dynamically inserted here -->
         </section>
-        <div id="pagination">
-            <a href="#">&laquo; Previous</a>
-            <!-- Dynamically add page numbers here -->
-            <a href="#">Next &raquo;</a>
-        </div>
     </main>
     <footer>
         <!-- Footer content -->
