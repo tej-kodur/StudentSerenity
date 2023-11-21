@@ -5,10 +5,23 @@
     box-sizing: border-box;
 }
 
-body, html {
+html {
     height: 100%;
     font-family: Arial, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
 }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
 
 header {
     background-color: #f4f4f4;
@@ -42,9 +55,9 @@ nav a.active {
 }
 
 main {
+    flex: 1 0 auto; /* Flex grow, no shrink, auto basis */
     padding: 1rem;
     background-color: #fff;
-    min-height: 80%;
 }
 
 #filter-section {
@@ -98,9 +111,10 @@ footer {
     background-color: #f4f4f4;
     text-align: center;
     padding: 1rem;
-    position: absolute;
+    
     bottom: 0;
     width: 100%;
+    flex-shrink: 0;
 }
 
 /* Responsive design */
@@ -193,3 +207,20 @@ footer {
     font-weight: bold;
     color: #333;
 }
+
+
+.read-more-btn {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3; /* Darker shade for hover state */
+}
+
