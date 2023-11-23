@@ -14,7 +14,7 @@
       },
       {
         "title": "Depression in the Workplace: Recognizing and Responding",
-        "summary": "Depression in the workplace is an often-overlooked issue that can significantly impact productivity and employee well-being. Understanding how to recognize the signs of depression among colleagues and the best ways to offer support are crucial steps in creating a supportive work environment...",
+        "summary": "Depression in the workplace is an often-overlooked issue that can significantly impact productivity and employee well-being. Understanding how to recognize the signs of depression among colleagues...",
         "tags": {
           "length": "long",
           "concern": "depression",
@@ -35,7 +35,236 @@
           "type": "selfhelp",
           "author": "C. Brown"
         }
-      }
+      },
+      {
+        "title": "What is Anxiety?",
+        "summary": "Anxiety is both a mental and physical state of negative expectation. Mentally it is characterized by increased arousal and apprehension tortured into distressing worry, and physically by unpleasant activation of multiple body systems—all to facilitate response to an unknown danger, whether real or imagined....",
+        "tags": {
+          "length": "short",
+          "concern": "anxiety",
+          "feeling": "stressed",
+          "date": "2022-03-30",
+          "type": "selfhelp",
+          "author": "C. Down"
+        }
+      },
+      {
+        "title": "Reasons behind anxiety: A comprehensive Study  ",
+        "summary": "Anxiety is a normal response triggered by the body's fight-or-flight mechanism in response to perceived threats or stressful situations. It can be beneficial in moderate amounts, enhancing alertness, focus....",
+        "tags": {
+          "length": "long",
+          "concern": "anxiety",
+          "feeling": "anxious",
+          "date": "2021",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Anxiety Archive: Blasting through Mental Health Misperceptions",
+        "summary": "Approximately 58 million American adults grapple with various mental illnesses, including anxiety, depression, and bipolar disorder. Despite its prevalence, mental health issues are often stigmatized. However, scientific advancements....",
+        "tags": {
+          "length": "medium",
+          "concern": "anxiety",
+          "feeling": "concerned",
+          "date": "2023",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Warning Signs and Risk Factors for Emotional Distress",
+        "summary": "Explore the prevalent warning signs and risk factors associated with emotional distress experienced by individuals, including children, adults, and first responders, often triggered by crises or traumatic events. Stress symptoms are common both before and after such events....",
+        "tags": {
+          "length": "long",
+          "concern": "distress",
+          "feeling": "stressed",
+          "date": "2022",
+          "type": "self-help",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Factors Contributing to Psychological Distress in the Working Population, with a Special Reference to Gender Difference",
+        "summary": "Psychological distress encompasses nonspecific symptoms of stress, anxiety, and depression, often observed more frequently....",
+        "tags": {
+          "length": "medium",
+          "concern": "distress",
+          "feeling": "stressed",
+          "date": "2021",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Coping Tips for Traumatic Events and Disasters",
+        "summary": "In the face of traumatic events or disasters, emotional distress can occur both before and after the incident. Coping strategies involve preparatory measures, self-care practices, and recognizing and utilizing support networks. Individuals might undergo a spectrum of emotions during....",
+        "tags": {
+          "length": "long",
+          "concern": "distress",
+          "feeling": "distressed",
+          "date": "2023",
+          "type": "self-help",
+          "author": "Anonymous"
+        }
+      },
+
+      {
+        "title": "How to Be Better at Stress",
+        "summary": "Stress is an inevitable aspect of contemporary life, arising from various sources such as work, finances, family, and larger societal concerns like global pandemics and political tensions. However, adopting the right approach can prevent stress from overpowering one's life; it can even offer potential benefits....",
+        "tags": {
+          "length": "medium",
+          "concern": "distress",
+          "feeling": "stressed",
+          "date": "2023",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "The Role of Meaning in Life in Psychological Distress During the COVID-19 Pandemic",
+        "summary": "This study examines the potential of meaning in life as a protective factor amid potentially traumatic experiences, such as the COVID-19 pandemic....",
+        "tags": {
+          "length": "long",
+          "concern": "distress",
+          "feeling": "anxious",
+          "date": "2020",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Insomnia: Definition, Prevalence, Etiology, and Consequences",
+        "summary": "Insomnia is a term with various interpretations within medical literature and the public domain. Typically, it refers to an individual's self-reported difficulty in falling asleep or staying asleep.",
+        "tags": {
+          "length": "medium",
+          "concern": "insomnia",
+          "feeling": "sleep-deprived",
+          "date": "2022",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "The Different Faces of Insomnia",
+        "summary": "This study aims to identify clinically relevant subtypes of insomnia and introduces new phenotypical parameters by presenting findings from a specific insomnia cohort. The research includes a comprehensive literature review.",
+        "tags": {
+          "length": "long",
+          "concern": "insomnia",
+          "feeling": "sleep-deprived",
+          "date": "2022",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "What is Insomnia? Everything You Need to Know",
+        "summary": "Insomnia is a sleep disorder characterized by difficulty falling asleep, staying asleep, or waking up too early and being unable to return to sleep.",
+        "tags": {
+          "length": "long",
+          "concern": "insomnia",
+          "feeling": "sleep-deprived",
+          "date": "2021",
+          "type": "self-help",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "What to Know About Rebound Insomnia",
+        "summary": "Rebound insomnia occurs when individuals stop using certain medications that aid sleep, leading to difficulties in falling or staying asleep. In some cases, rebound insomnia can be more severe than the original insomnia experienced before treatment.",
+        "tags": {
+          "length": "medium",
+          "concern": "insomnia",
+          "feeling": "sleep-deprived",
+          "date": "2020",
+          "type": "self-help",
+          "author": "Anonymous"
+        }
+      },      
+      {
+        "title": "Behavioral Addiction versus Substance Addiction: Correspondence of Psychiatric and Psychological Views",
+        "summary": "Introduction: According to behavioral science experts, any stimulating entity has the potential for addiction, and when a habit transforms into a compulsion, it may be classified as an addiction....",
+        "tags": {
+          "length": "long",
+          "concern": "addictive behavior",
+          "feeling": "curious",
+          "date": "2022",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "An Integrated Approach to Addictive Behaviors: A Study on Vulnerability and Maintenance Factors",
+        "summary": "Abstract: This study delved into examining the relationships among various variables within the Comprehensive Model of Addiction (CMA). The CMA highlights....",
+        "tags": {
+          "length": "medium",
+          "concern": "addictive behavior",
+          "feeling": "inquiring",
+          "date": "2023",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Why Addiction is a 'Disease', and Why It’s Important",
+        "summary": "RESOURCE GUIDE EDUCATIONAL PAGES: Addiction 101 - The Recovery Research Institute offers a comprehensive overview encompassing the epidemiology (prevalence), etiology (causes), phenomenology (experience), impact....",
+        "tags": {
+          "length": "long",
+          "concern": "addictive behavior",
+          "feeling": "motivated",
+          "date": "2022",
+          "type": "self-help",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Posttraumatic Stress Disorder (PTSD)",
+        "summary": "Posttraumatic stress disorder (PTSD) is a psychiatric condition that can arise in individuals who have been exposed to or witnessed a traumatic event, series of events, or specific circumstances. These experiences may be perceived as emotionally or physically harmful....",
+        "tags": {
+          "length": "short",
+          "concern": "ptsd",
+          "feeling": "affected",
+          "date": "2022",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Posttraumatic Stress Disorder: From Diagnosis to Prevention",
+        "summary": "Abstract: Posttraumatic stress disorder (PTSD) is a chronic impairment disorder triggered by exposure to traumatic events. This condition can lead to disruptions in individual and family functioning, contributing to notable medical, financial....",
+        "tags": {
+          "length": "medium",
+          "concern": "ptsd",
+          "feeling": "concerned",
+          "date": "2021",
+          "type": "self-help",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "A Private War: Why PTSD Is Still Overlooked",
+        "summary": "Experts highlight that millions of individuals are affected by trauma, yet many are not receiving adequate treatment. Despite trauma becoming a widely recognized term, the prevalence of untreated cases persists. Nancy Méndez-Booth was diagnosed with PTSD after experiencing the stillbirth of her baby in 2008....",
+        "tags": {
+          "length": "short",
+          "concern": "ptsd",
+          "feeling": "concerned",
+          "date": "2020",
+          "type": "self-help",
+          "author": "Anonymous"
+        }
+      },
+      {
+        "title": "Posttraumatic Stress Disorder (PTSD)",
+        "summary": "Introduction: In previous conflicts, terms such as 'soldier's heart,' 'shell shock,' or 'combat fatigue' were used to describe certain issues experienced by individuals. Presently, medical professionals identify these conditions as a specific medical disorder known as posttraumatic stress disorder (PTSD).",
+        "tags": {
+          "length": "long",
+          "concern": "ptsd",
+          "feeling": "informed",
+          "date": "2020",
+          "type": "informative",
+          "author": "Anonymous"
+        }
+      }      
  
     ]
   }
