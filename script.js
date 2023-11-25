@@ -1,5 +1,7 @@
 let currentPage = 1;
 const articlesPerPage = 20;
+const sortButton = document.getElementById('sortButton');
+const sortDropdown = document.getElementById('sortDropdown');
 
 document.addEventListener('DOMContentLoaded', function() {
     fetch('articles.json')
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 updatePagination();
         }
 
-
+    
 
     function renderArticles(articlesToRender) {
         articlesContainer.innerHTML = articlesToRender.map((article, index) => `
@@ -236,6 +238,50 @@ document.addEventListener('DOMContentLoaded', function() {
         showSuggestions(e.target.value);
         filterArticles();
     });
+    
+    function sortArticles(sortBy, ascending = true) {
+        articles.sort((a, b) => {
+            if (sortBy === 'title') {
+                return ascending ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
+            } else if (sortBy === 'date') {
+                let dateA = new Date(a.tags.date);
+                let dateB = new Date(b.tags.date);
+                return ascending ? dateA - dateB : dateB - dateA;
+            }
+        });
+
+        currentPage = 1; // Reset to the first page after sorting
+        renderPage();
+    }
+
+    function handleSortOptionChange() {
+        const sortOptions = document.querySelectorAll('input[name="sortOption"]:checked');
+        if (sortOptions.length > 0) {
+            const selectedOption = sortOptions[0].value;
+            const ascending = document.querySelector('input[name="sortOrder"]:checked').value === 'ascending';
+            sortArticles(selectedOption, ascending);
+        }
+    }
+
+    // Toggle Sort Dropdown
+    sortButton.addEventListener('click', function() {
+        this.classList.toggle('active');
+        sortDropdown.style.display = sortDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Hide Sort Dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!sortButton.contains(event.target) && !sortDropdown.contains(event.target)) {
+            sortDropdown.style.display = 'none';
+            sortButton.classList.remove('active');
+        }
+    });
+
+    // Sorting event listeners
+    document.querySelectorAll('input[name="sortOption"], input[name="sortOrder"]').forEach(input => {
+        input.addEventListener('change', handleSortOptionChange);
+    });
+
 
     // Call the initial render function
     renderPage();
