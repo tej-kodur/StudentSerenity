@@ -94,6 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchTerm = searchInput.value.toLowerCase();
         let filteredArticles = articles;
     
+        // Get selected emotions from the checkboxes
+        const selectedEmotions = Array.from(document.querySelectorAll('input[name="emotion"]:checked'))
+                                      .map(checkbox => checkbox.value.toLowerCase());
+    
         // Filter by search term
         if (searchTerm) {
             filteredArticles = filteredArticles.filter(article => {
@@ -103,13 +107,19 @@ document.addEventListener('DOMContentLoaded', function() {
                        tagsString.includes(searchTerm);
             });
         }
-    
+        
         // Get selected years from the checkboxes
         const selectedYears = Array.from(document.querySelectorAll('input[name="date"]:checked'))
-                                   .map(checkbox => checkbox.value);
-    
-        // Filter by checkboxes for each category
+        .map(checkbox => checkbox.value);
+
+
+        // Filter by checkboxes for each category, including emotions
         filteredArticles = filteredArticles.filter(article => {
+            // Filter by selected emotions
+            if (selectedEmotions.length > 0 && !selectedEmotions.includes(article.tags.feeling.toLowerCase())) {
+                return false;
+            }
+
             // Filter by selected years, including the special case for "Before 2018"
             const articleYear = article.tags.date.split('-')[0];
             if (selectedYears.includes('before2018') && parseInt(articleYear, 10) < 2018) {
@@ -121,8 +131,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
             // Filter by other categories (concern, length, etc.)
             return Array.from(filterCheckboxes).every(checkbox => {
-                if (!checkbox.checked || checkbox.name === 'date') {
-                    return true; // Skip unchecked checkboxes and date checkboxes since it's already handled
+                if (!checkbox.checked || checkbox.name === 'emotion') {
+                    return true; // Skip unchecked checkboxes and emotion checkboxes since it's already handled
                 }
                 // Check if the article's tags match the checkbox value
                 const category = checkbox.name;
@@ -133,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
         renderArticles(filteredArticles);
     }
-    
 
 
     
