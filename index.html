@@ -85,8 +85,25 @@
                     <!-- Add other years or ranges as needed -->
                 </div>
                 </div>
+                
             </div>
+
+            
+            
         </aside>
+
+        <div id="sortSection" class="sort-section">
+            <button id="sortButton" class="sort-button">Sort By</button>
+            <div id="sortDropdown" class="sort-dropdown">
+                <label><input type="radio" name="sortOption" value="relevance"> Relevance</label>
+                <label><input type="radio" name="sortOption" value="title"> Alphabetically by Title</label>
+                <label><input type="radio" name="sortOption" value="date"> By Date Posted</label>
+                <div>
+                    <label><input type="radio" name="sortOrder" value="ascending" checked> Ascending</label>
+                    <label><input type="radio" name="sortOrder" value="descending"> Descending</label>
+                </div>
+            </div>
+        </div>
         
         <section id="articles">
             <!-- Articles will be dynamically inserted here -->
