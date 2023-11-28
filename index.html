@@ -38,7 +38,7 @@
         
        
         <aside id="filters">
-            <button id="filterButton">Filters</button>
+            <button id="filterButton">≡ Filters</button>
             <div id="filterDropdown" class="filter-dropdown">
 
                 <div class="filter-column">
@@ -84,15 +84,38 @@
                     <label><input type="checkbox" name="date" value="Before 2018"> Before 2018</label>
                     <!-- Add other years or ranges as needed -->
                 </div>
+                <!-- Filter by Emotion -->
+                <div class="filter-category">
+                    <h3>Filter by Emotion</h3>
+                    <label><input type="checkbox" name="emotion" value="Grief"> Grief</label>
+                    <label><input type="checkbox" name="emotion" value="Sad"> Sad</label>
+                    <label><input type="checkbox" name="emotion" value="Lonely"> Lonely</label>
+                    <label><input type="checkbox" name="emotion" value="Angry"> Angry</label>
+                    <label><input type="checkbox" name="emotion" value="Fear"> Fear</label>
+                    <label><input type="checkbox" name="emotion" value="Guilt"> Guilt</label>
+                    <label><input type="checkbox" name="emotion" value="Frustration"> Frustration</label>
+                </div>
+
                 </div>
                 
             </div>
 
-            
+            <div id="sortSection" class="sort-section">
+                <button id="sortButton" class="sort-button">↑↓ Sort By</button>
+                <div id="sortDropdown" class="sort-dropdown">
+                    <label><input type="radio" name="sortOption" value="relevance"> Relevance</label>
+                    <label><input type="radio" name="sortOption" value="title"> Alphabetically by Title</label>
+                    <label><input type="radio" name="sortOption" value="date"> By Date Posted</label>
+                    <div>
+                        <label><input type="radio" name="sortOrder" value="ascending" checked> Ascending</label>
+                        <label><input type="radio" name="sortOrder" value="descending"> Descending</label>
+                    </div>
+                </div>
+            </div>    
             
         </aside>
 
-        <div id="sortSection" class="sort-section">
+        <!-- <div id="sortSection" class="sort-section">
             <button id="sortButton" class="sort-button">Sort By</button>
             <div id="sortDropdown" class="sort-dropdown">
                 <label><input type="radio" name="sortOption" value="relevance"> Relevance</label>
@@ -103,7 +126,7 @@
                     <label><input type="radio" name="sortOrder" value="descending"> Descending</label>
                 </div>
             </div>
-        </div>
+        </div> -->
         
         <section id="articles">
             <!-- Articles will be dynamically inserted here -->
