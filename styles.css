@@ -57,7 +57,7 @@ figcaption {
     align-items: center; /* Center text vertically */
     justify-content: center; /* Center text horizontally */
     font-size: 1rem;
-    margin-left: -10px;
+    margin-left: 10px; /* Add space between logo and caption */
 }
 
 
@@ -114,7 +114,6 @@ main {
     margin-right: 10px;
     text-decoration: underline;
     cursor: pointer;
-    margin: left 10px;
 }
 
 #articles {
@@ -191,10 +190,10 @@ footer {
 
 #suggestions {
     position: absolute;
-    left: 33.5%;;
+    left: 24%;;
     border: 1px solid #ddd;
     border-top: none;
-    width: calc(100% - 1016px);
+    width: calc(100% - 700px);
     max-height: 200px;
     overflow-y: auto;
     background-color: #D9D9D9;
@@ -255,7 +254,6 @@ filter-category input[type="checkbox"] {
     padding: 10px;
     cursor: pointer;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    margin-left: 15px;
 }
 
 #filterButton:hover {
@@ -297,8 +295,7 @@ filter-category input[type="checkbox"] {
 
 
 .read-more-btn {
-    /* position: fixed;
-    margin-top: -100px; */
+    
     padding: 10px;
     background-color: #6880A5;
     color: black;
@@ -310,7 +307,6 @@ filter-category input[type="checkbox"] {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     display: block; /* Change display to block for margins to take effect */
     margin: 10px auto; /* Top and bottom margins are 10px, left and right are auto */
-    margin-top: auto;
 }
 
 
@@ -319,29 +315,8 @@ filter-category input[type="checkbox"] {
     background-color: #0056b3; /* Darker shade for hover state */
 }
 
-#sortSection {
-    margin-left: 82rem;
-    margin-top: -2.5rem;
-}
 
-#sortButton {
-    background-color: #D9D9D9;
-    border: 1px solid #ddd;
-    padding: 10px;
-    cursor: pointer;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
 
-#sortDropdown {
-    display: none;
-    position: absolute;
-    background-color: #D9D9D9;
-    border: 1px solid #ddd;
-    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    z-index: 1;
-    padding: 15px;
-}
 
 #pagination {
     display: flex;
