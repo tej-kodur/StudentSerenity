@@ -32,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="article-card">
                 <h3>${article.title}</h3>
                 <p>${article.summary}</p>
+                <div class="article-tags">
+                    <span class="tag feeling">${article.tags.feeling}</span>
+                    <span class="tag concern">${article.tags.concern}</span>
+                    <span class="tag length">${article.tags.length}</span>
+                    <span class="tag type">${article.tags.type}</span>
+                    <span class="tag date">${article.tags.date}</span>
+                </div>
                 <button class="read-more-btn" data-index="${index}">Read More</button>
             </div>
         `).join('');
