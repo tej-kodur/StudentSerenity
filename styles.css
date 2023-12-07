@@ -421,3 +421,10 @@ filter-category input[type="checkbox"] {
         text-align: center; /* Center the content on small screens */
     }
 }
+
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
