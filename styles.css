@@ -422,19 +422,3 @@ filter-category input[type="checkbox"] {
     }
 }
 
-
-.article-tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px 0;
-}
-
-.tag {
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 5px;
-    font-size: 0.8em;
-    color: #333;
-}
