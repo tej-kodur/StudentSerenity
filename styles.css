@@ -422,3 +422,9 @@ filter-category input[type="checkbox"] {
     }
 }
 
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
